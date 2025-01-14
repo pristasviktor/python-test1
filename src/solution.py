@@ -1,23 +1,23 @@
 # Exercise 1
 # Find the opposite of the given number
 def find_opposite(n):
-    print("the opposite of number 3 is -3")
+    print("the opposite of number", n, "is", -1 * n)
 
 # ====================================================
 
 # Exercise 2
 # Calculate the area and perimeter of a rectangle
 def find_area_perimeter(a, b):
-    print("The area is: 8 m2")
-    print("The perimeter is: 12 m")
+    print("The area is: ", a * b, "m2")
+    print("The perimeter is: ", 2 * a + 2 * b, "m")
 
 # ====================================================
 
 # Exercise 3
 # Multiply and divide two numbers
 def mul_div(x, y):
-    print("5 * 2 = 6")
-    print("5 / 2 = 2.5")
+    print(x, "*", y, "=", x * y)
+    print(x, "/", y, "=", x / y)
 
 # ====================================================
 
@@ -25,9 +25,10 @@ def mul_div(x, y):
 # Prints one dog, n sheep and twice as many geese. At the end there will be a dog again.
 def dog_sheep_gees(n):
     print("Dog")
-    print("Sheep")
-    print("Goose")
-    print("Goose")
+    for i in range(n):
+        print("Sheep")
+    for i in range(2 * n):
+        print("Goose")
     print("Dog")
 
 # ====================================================
@@ -35,36 +36,49 @@ def dog_sheep_gees(n):
 # Exercise 5
 # Print even numbers in a given interval
 def print_even_numbers_in_interval(start, end):
-    print(start * end)
+    for i in range(start, end + 1):
+        if i % 2 == 0:
+            print(i)
 
 # ====================================================
 
 # Exercise 6
 # Check if the given number is near 50, either between 40 and 60 or between 140 and 160.
 def near_fifty(n):
-    return False
+    return 40 <= n <= 60 or 140 <= n <= 160
 
 # ====================================================
 
 # Exercise 7
 # Check if a person is eligible for a discount. They must have a card and be either under 18 or over 60.
 def discount_with_card(age, hasCard):
-    return False
+    return hasCard and (age <= 18 or 60 <= age)
 
 # ====================================================
 
 # Exercise 8
 # Check if the division remainder is 0 or 1. If it is, it prints the remainder, otherwise the division is not nice
 def almost_nice_division(n, d):
-    print("the remainder is: 0")
-    print("the division is not nice")
+    if (n % d == 0) or (n % d == 1):
+        print("the remainder is: ", n % d)
+    else:
+        print("the division is not nice")
 
 # ====================================================
 
 # Exercise 9
-# Return the season (Winter, Spring, Summer, Autumn) of the year based on the month
+# Return the season of the year based on the month
 def season(month):
-    return "Invalid month"
+    if month == 12 or month == 1 or month == 2:
+        return "Winter"
+    elif month == 3 or month == 4 or month == 5:
+        return "Spring"
+    elif month == 6 or month == 7 or month == 8:
+        return "Summer"
+    elif month == 9 or month == 10 or month == 11:
+        return "Autumn"
+    else:
+        return "Invalid month"
 
 
 # ====================================================
@@ -76,7 +90,14 @@ def season(month):
 # If both the exam score and project score are greater than 70, return "C".
 # Otherwise, return "D".
 def final_grade(exam_score, project_score):
-    return "D"
+    if exam_score >= 90 and project_score >= 90:
+        return "A"
+    elif (exam_score >= 90 and project_score >= 70) or (exam_score >= 70 and project_score >= 90):
+        return "B"
+    elif exam_score > 70 and project_score > 70:
+        return "C"
+    else:
+        return "D"
 
 
 if __name__ == '__main__':
